@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * putcha - Print a char c to stdout
- * @c: char to print
+ * putcha - Print a char to standout
+ * @c: char to print function
  * Return: 1 (success)
  */
 int putcha(char c)

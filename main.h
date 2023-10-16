@@ -81,7 +81,7 @@ int print_pointer(va_list types, char buffer[],
 /* A funciotns that handle other specifiers */
 int get_flags(const char *format, int *n);
 int get_width(const char *format, int *n, va_list list);
-int get_precision(const char *format, int *n, va_list list);
+int my_get_precision(const char *format, int *n, va_list list);
 int get_size(const char *format, int *n);
 
 /* A function that print string in reverse*/

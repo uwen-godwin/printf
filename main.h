@@ -31,7 +31,6 @@ struct fmt
 	int (*fn)(va_list, char[], int, int, int, int);
 };
 
-
 /**
  * typedef struct fmt fmt_t - The Struct op
  *
@@ -40,26 +39,26 @@ struct fmt
  */
 
 typedef struct fmt fmt_t;
-
+int putcha(char c);
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /* A Funtions that print chars and strings */
-int my_print_char(va_list types, char buffer[],
+int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
-int my_print_string(va_list types, char buffer[],
+int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
-int my_print_percent(va_list types, char buffer[],
+int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* A Functions that print numbers */
-int my_print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int my_print_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int print_int(va_list types, char buffer[], int flags, int width,
+		int precision, int size);
+int print_binary(va_list types, char buffer[], int flags, int width,
+		int precision, int size);
+int print_unsigned(va_list types, char buffer[], int flags,
+		int width, int precision, int size);
 int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_hexadecimal(va_list types, char buffer[],

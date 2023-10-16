@@ -1,7 +1,7 @@
 #include "main.h"
 
 /*
- * my_print_char - a function that print my char
+ * print_char - a function that print my char
  * @types: the list if arguments to be printed
  * @buffer: the arrays and buffers to be handled
  * @flags:  flags active to be calculated
@@ -10,7 +10,7 @@
  * @size: byte
  * Return: return a character (success)
  */
-int my_print_char(va_list types, char buffer[],
+int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
@@ -18,7 +18,7 @@ int my_print_char(va_list types, char buffer[],
 	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
 /**
- * my_print_string - a function that print my char
+ * print_string - a function that print my char
  * @types: List if arga to be printed
  * @buffer: arrays and buffer to be handled
  * @flags:  flags activuties to the function
@@ -27,7 +27,7 @@ int my_print_char(va_list types, char buffer[],
  * @size: Size
  * Return: Number of chars printed
  */
-int my_print_string(va_list types, char buffer[],
+int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int length = 0, n;
@@ -44,13 +44,10 @@ int my_print_string(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "      ";
 	}
-
 	while (str[length] != '\0')
 		length++;
-
 	if (precision >= 0 && precision < length)
 		length = precision;
-
 	if (width > length)
 	{
 		if (flags & F_MINUS)
@@ -62,17 +59,16 @@ int my_print_string(va_list types, char buffer[],
 		}
 		else
 		{
-			for (i = width - length; n > 0; n--)
+			for (n = width - length; n > 0; n--)
 				write(1, " ", 1);
 			write(1, &str[0], length);
 			return (width);
 		}
 	}
-
 	return (write(1, str, length));
 }
 /**
- * my_print_percent - Printed character
+ * print_percent - Printed character
  * @types: created list
  * @buffer: set of arrays and buffers
  * @flags:  file calculated
@@ -81,7 +77,7 @@ int my_print_string(va_list types, char buffer[],
  * @size: Size of specifier
  * Return: Number of chars printed
  */
-int my_print_percent(va_list types, char buffer[],
+int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	UNUSED(types);
@@ -94,7 +90,7 @@ int my_print_percent(va_list types, char buffer[],
 }
 
 /*
- * my_print_int - Printed file for me
+ * print_int - Printed file for me
  * @types: args for me
  * @buffer: my buffer
  * @flags:  flags off character
@@ -103,7 +99,7 @@ int my_print_percent(va_list types, char buffer[],
  * @size: specific size of buffer
  * Return: character size
  */
-int my_print_int(va_list types, char buffer[],
+int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int m = BUFF_SIZE - 2;
@@ -112,32 +108,26 @@ int my_print_int(va_list types, char buffer[],
 	unsigned long int num;
 
 	n = convert_size_number(n, size);
-
 	if (n == 0)
 		buffer[m--] = '0';
-
 	buffer[BUFF_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
-
 	if (n < 0)
 	{
 		num = (unsigned long int)((-1) * n);
 		is_negative = 1;
 	}
-
 	while (num > 0)
 	{
 		buffer[m--] = (num % 10) + '0';
 		num /= 10;
 	}
-
 	m++;
-
 	return (write_number(is_negative, m, buffer, flags, width, precision, size));
 }
 
 /*
- * my_print_binary - unassigned prints
+ * print_binary - unassigned prints
  * @types: printee char
  * @buffer: Buffers and arrays
  * @flags:  acrive cals
@@ -146,7 +136,7 @@ int my_print_int(va_list types, char buffer[],
  * @size: Sizeed byte
  * Return: Numbers of character
  */
-int my_print_binary(va_list types, char buffer[],
+int print_binary(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	unsigned int x, y, j, sum;
@@ -172,8 +162,7 @@ int my_print_binary(va_list types, char buffer[],
 		sum += a[j];
 		if (sum || j == 31)
 		{
-			char z = '0' + a[i];
-
+			char z = '0' + a[x];
 			write(1, &z, 1);
 			count++;
 		}

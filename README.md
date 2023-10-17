@@ -1,10 +1,10 @@
 ####Goodnews Okorafor and Uwen Godwin ALX First Team Project
 
-	Project Title: 0x11. C - printf 
+	Project Title: 0x11. C - printf
 
 	Task: 0 - 15
 
-####0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life 
+####0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 
 	Write a function that produces output according to a format.
 
@@ -12,7 +12,7 @@
 
 	write output to stdout, the standard output stream.
 
-	format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail. 
+	format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail
 
 	You need to handle the following conversion specifiers:
 
@@ -22,7 +22,7 @@
 
 	%
 
-####1. Education is when you read the fine print. Experience is what you get if you don't 
+####1. Education is when you read the fine print. Experience is what you get if you don't
 
 	Handle the following conversion specifiers:
 

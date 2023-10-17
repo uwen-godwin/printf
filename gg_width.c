@@ -6,7 +6,7 @@
  * Description:
  * This function calculates the appropriate output
  * width for formatting based on the format string and arguments.
- *
+ * @list: Number of items
  * @format: The formatted string containing the arguments.
  * @i: List of arguments to be formatted.
  *

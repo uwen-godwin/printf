@@ -21,7 +21,7 @@
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int b = 0;
+	int m = 0;
 	char padd = ' ';
 
 	UNUSED(precision);
@@ -30,19 +30,19 @@ int handle_write_char(char c, char buffer[],
 	if (flags & F_ZERO)
 		padd = '0';
 
-	buffer[b++] = c;
-	buffer[b] = '\0';
+	buffer[m++] = c;
+	buffer[m] = '\0';
 
 	if (width > 1)
 	{
 		buffer[BUFF_SIZE - 1] = '\0';
-		for (b = 0; b < width - 1; b++)
-			buffer[BUFF_SIZE - b - 2] = padd;
+		for (m = 0; m < width - 1; m++)
+			buffer[BUFF_SIZE - m - 2] = padd;
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
-		write(1, &buffer[BUFF_SIZE - b - 1], width - 1));
+		write(1, &buffer[BUFF_SIZE - m - 1], width - 1));
 		else
-			return (write(1, &buffer[BUFF_SIZE - b - 1], width - 1) +
+			return (write(1, &buffer[BUFF_SIZE - m - 1], width - 1) +
 		write(1, &buffer[0], 1));
 	}
 	return (write(1, &buffer[0], 1));

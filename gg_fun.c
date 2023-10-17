@@ -43,7 +43,7 @@ int print_char(va_list types, char buffer[],
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int len = 0, i;
+	int lem = 0, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
@@ -57,28 +57,28 @@ int print_string(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "      ";
 	}
-	while (str[len] != '\0')
-		len++;
-	if (precision >= 0 && precision < len)
-		len = precision;
-	if (width > len)
+	while (str[lem] != '\0')
+		lem++;
+	if (precision >= 0 && precision < lem)
+		lem = precision;
+	if (width > lem)
 	{
 		if (flags & F_MINUS)
 		{
-			write(1, &str[0], len);
-			for (i = width - len; i > 0; i--)
+			write(1, &str[0], lem);
+			for (i = width - lem; i > 0; i--)
 				write(1, " ", 1);
 			return (width);
 		}
 		else
 		{
-			for (i = width - len; i > 0; i--)
+			for (i = width - lem; i > 0; i--)
 				write(1, " ", 1);
-			write(1, &str[0], len);
+			write(1, &str[0], lem);
 			return (width);
 		}
 	}
-	return (write(1, str, len));
+	return (write(1, str, lem));
 }
 /**
  * print_percent - Print a percent sign.

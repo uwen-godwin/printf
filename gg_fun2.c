@@ -63,7 +63,7 @@ int print_pointer(va_list types, char buffer[],
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int gg = 0, offset = 0;
+	int gp = 0, offset = 0;
 	char *str = va_arg(types, char *);
 
 	UNUSED(flags);
@@ -74,17 +74,17 @@ int print_non_printable(va_list types, char buffer[],
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 
-	while (str[gg] != '\0')
+	while (str[gp] != '\0')
 	{
-		if (is_printable(str[gg]))
-			buffer[gg + offset] = str[gg];
+		if (is_printable(str[gp]))
+			buffer[gp + offset] = str[gp];
 		else
-			offset += append_hexa_code(str[gg], buffer, gg + offset);
-		gg++;
+			offset += append_hexa_code(str[gp], buffer, gp + offset);
+		gp++;
 	}
-	buffer[gg + offset] = '\0';
+	buffer[gp + offset] = '\0';
 
-	return (write(1, buffer, gg + offset));
+	return (write(1, buffer, gp + offset));
 }
 
 /**

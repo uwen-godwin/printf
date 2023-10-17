@@ -16,20 +16,20 @@
  */
 int get_flags(const char *format, int *i)
 {
-	int m, cal;
+	int k, cal;
 	int flag = 0;
 	const char FLAGS_CH[] = {'-', '+', '0', '#', ' ', '\0'};
 	const int FLAGS_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
 	for (cal = *i + 1; format[cal] != '\0'; cal++)
 	{
-		for (m = 0; FLAGS_CH[m] != '\0'; m++)
-			if (format[cal] == FLAGS_CH[m])
+		for (k = 0; FLAGS_CH[k] != '\0'; k++)
+			if (format[cal] == FLAGS_CH[k])
 			{
-				flag |= FLAGS_ARR[m];
+				flag |= FLAGS_ARR[k];
 				break;
 			}
-		if (FLAGS_CH[m] == 0)
+		if (FLAGS_CH[k] == 0)
 			break;
 	}
 	*i = cal - 1;

@@ -144,40 +144,36 @@ int print_reverse(va_list types, char buffer[],
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char x;
-	char *str;
-	unsigned int a, y;
-	int count = 0;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+		char x;
+		char *str;
+		unsigned int a, y;
+		int count = 0;
+		char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+		char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	str = va_arg(types, char *);
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+		str = va_arg(types, char *);
 
-	if (str == NULL)
+		if (str == NULL)
 		str = "(AHYY)";
-	for (a = 0; str[a]; a++)
-	{
-		for (y = 0; in[y]; y++)
+
+		for (a = 0; str[a]; a++)
 		{
-			if (in[y] == str[y])
+			for (y = 0; in[y]; y++)
 			{
+				if (in[y] == str[a])
+				{
 				x = out[y];
 				write(1, &x, 1);
 				count++;
 				break;
+				}
 			}
 		}
 		if (!in[y])
 		{
-			x = str[a];
-			write(1, &x, 1);
-			count++;
+		x = str[a];
+		write(1, &x, 1);
+		count++;
 		}
-	}
-	return (count);
+		return (count);
 }

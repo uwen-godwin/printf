@@ -2,16 +2,10 @@
 
 /**
  * get_width - Determine the output width for formatting.
- *
- * Description:
- * This function calculates the appropriate output
- * width for formatting based on the format string and arguments.
  * @list: Number of items
  * @format: The formatted string containing the arguments.
  * @i: List of arguments to be formatted.
- *
- * Return:
- * The calculated output width.
+ * Return: The calculated output width.
  */
 int get_width(const char *format, int *i, va_list list)
 {

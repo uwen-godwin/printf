@@ -3,7 +3,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <ctype.h>
 
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
@@ -75,7 +74,7 @@ int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 int print_rot13string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+        int flags, int width, int precision, int size);
 
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size);

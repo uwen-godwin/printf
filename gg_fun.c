@@ -2,9 +2,7 @@
 
 /**
  * print_char - Print a single character.
- *
- * Description:
- * This function is used to print a character.
+ * Description: This function is used to print a character.
  *
  * @types: List of arguments
  * @buffer: Buffer array for handling the print
@@ -13,8 +11,7 @@
  * @precision: Precision specification
  * @size: Size specifier
  *
- * Return:
- * The number of characters printed.
+ * Return: The number of characters printed.
  */
 int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -27,9 +24,7 @@ int print_char(va_list types, char buffer[],
 /**
  * print_string - Print a string.
  *
- * Description:
- * This function is used to print a string of characters.
- *
+ * Description: This function is used to print a string of characters.
  * @types: List of arguments
  * @buffer: Buffer array for handling the print
  * @flags: Calculate active flags
@@ -37,8 +32,7 @@ int print_char(va_list types, char buffer[],
  * @precision: Precision specification
  * @size: Size specifier
  *
- * Return:
- * The number of characters printed.
+ * Return: The number of characters printed.
  */
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -80,21 +74,18 @@ int print_string(va_list types, char buffer[],
 	}
 	return (write(1, str, lem));
 }
+
 /**
  * print_percent - Print a percent sign.
  *
- * Description:
- * This function is used to print a percent sign ("%").
- *
+ * Description: This function is used to print a percent sign ("%").
  * @types: List of arguments
  * @buffer: Buffer array for handling the print
  * @flags: Calculate active flags
  * @width: Width specification
  * @precision: Precision specification
  * @size: Size specifier
- *
- * Return:
- * The number of characters printed.
+ * Return: The number of characters printed.
  */
 int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -110,9 +101,7 @@ int print_percent(va_list types, char buffer[],
 /**
  * print_int - Print an integer.
  *
- * Description:
- * This function is used to print an integer.
- *
+ * Description: This function is used to print an integer.
  * @types: List of arguments
  * @buffer: Buffer array for handling the print
  * @flags: Calculate active flags
@@ -120,8 +109,7 @@ int print_percent(va_list types, char buffer[],
  * @precision: Precision specification
  * @size: Size specifier
  *
- * Return:
- * The number of characters printed.
+ * Return: The number of characters printed.
  */
 
 int print_int(va_list types, char buffer[],
@@ -156,8 +144,7 @@ int print_int(va_list types, char buffer[],
 /**
  * print_binary - Output an unsigned number in binary format.
  *
- * Description:
- * This function is responsible for printing an
+ * Description: This function is responsible for printing an
  * unsigned number in binary format.
  *
  * @types: Argument list
@@ -167,8 +154,7 @@ int print_int(va_list types, char buffer[],
  * @precision: Precision specification
  * @size: Size specifier
  *
- * Return:
- * The count of characters printed.
+ * Return: The count of characters printed.
  */
 int print_binary(va_list types, char buffer[],
 	int flags, int width, int precision, int size)

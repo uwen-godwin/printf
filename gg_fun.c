@@ -23,26 +23,24 @@ int print_char(va_list types, char buffer[],
 
 /**
  * print_string - Print a string.
- *
- * Description: This function is used to print a string of characters.
  * @types: List of arguments
  * @buffer: Buffer array for handling the print
  * @flags: Calculate active flags
  * @width: Width specification
  * @precision: Precision specification
  * @size: Size specifier
- *
  * Return: The number of characters printed.
  */
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int lem = 0, i;
+	int length = 0, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
+
 	UNUSED(precision);
 	UNUSED(size);
 	if (str == NULL)
@@ -51,34 +49,35 @@ int print_string(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "      ";
 	}
-	while (str[lem] != '\0')
-		lem++;
-	if (precision >= 0 && precision < lem)
-		lem = precision;
-	if (width > lem)
+
+	while (str[length] != '\0')
+		length++;
+
+	if (precision >= 0 && precision < length)
+		length = precision;
+
+	if (width > length)
 	{
 		if (flags & F_MINUS)
 		{
-			write(1, &str[0], lem);
-			for (i = width - lem; i > 0; i--)
+			write(1, &str[0], length);
+			for (i = width - length; i > 0; i--)
 				write(1, " ", 1);
 			return (width);
 		}
 		else
 		{
-			for (i = width - lem; i > 0; i--)
+			for (i = width - length; i > 0; i--)
 				write(1, " ", 1);
-			write(1, &str[0], lem);
+			write(1, &str[0], length);
 			return (width);
 		}
 	}
-	return (write(1, str, lem));
+	return (write(1, str, length));
 }
 
 /**
  * print_percent - Print a percent sign.
- *
- * Description: This function is used to print a percent sign ("%").
  * @types: List of arguments
  * @buffer: Buffer array for handling the print
  * @flags: Calculate active flags

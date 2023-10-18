@@ -1,15 +1,10 @@
 #include "main.h"
 
 /**
- * get_precision - Determine the precision for formatting.
- *
- * Description: This function calculates the precision for formatting
- * based on the format string and arguments.
- *
+ * get_precision - Determine the precision for formatting
  * @format: The formatted string containing the arguments.
  * @i: List of arguments to be formatted.
  * @list: List of arguments.
- *
  * Return: The calculated precision.
  */
 
@@ -32,8 +27,8 @@ int get_precision(const char *format, int *i, va_list list)
 		}
 		else if (format[p] == '*')
 		{
-			p++;
 			precision = va_arg(list, int);
+			p++;
 			break;
 		}
 		else

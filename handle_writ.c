@@ -154,11 +154,6 @@ int write_num(int ind, char buffer[],
 
 /**
  * write_unsgnd - Write an unsigned number to a buffer with formatting
- *
- * Description:
- * This function writes a formatted unsigned number
- * to a buffer, considering various options and parameters.
- *
  * @is_negative: A number indicating if the number is negative.
  * @ind: Index indicating the start of the number in the buffer.
  * @buffer: The array of characters where the number is written.
@@ -166,9 +161,7 @@ int write_num(int ind, char buffer[],
  * @width: The specified width.
  * @precision: Precision specifier.
  * @size: Size specifier.
- *
- * Return:
- * The number of characters written.
+ * Return: The number of characters written.
  */
 int write_unsgnd(int is_negative, int ind,
 	char buffer[],
@@ -216,11 +209,6 @@ int write_unsgnd(int is_negative, int ind,
 
 /**
  * write_pointer - Write a memory address to a buffer with formatting
- *
- * Description:
- * This function writes a formatted memory address to a character buffer,
- * taking into account various formatting options.
- *
  * @buffer: An array of characters where the memory address is written.
  * @ind: Index indicating the start of the address in the buffer.
  * @length: The length of the address.
@@ -228,10 +216,8 @@ int write_unsgnd(int is_negative, int ind,
  * @flags: Flags specifier.
  * @padd: A character used for padding.
  * @extra_c: An extra character.
- * @padd_start: Index at which padding should start.
- *
- * Return:
- * The number of characters written.
+ * @padd_start: Index at which padding should start
+ * Return: The number of characters written.
  */
 int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start)

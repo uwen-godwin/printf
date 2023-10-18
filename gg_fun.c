@@ -142,18 +142,13 @@ int print_int(va_list types, char buffer[],
 }
 
 /**
- * print_binary - Output an unsigned number in binary format.
- *
- * Description: This function is responsible for printing an
- * unsigned number in binary format.
- *
+ * print_binary - Output an unsigned number in binary format
  * @types: Argument list
  * @buffer: Buffer array for printing
  * @flags: Active flags calculation
  * @width: Width specification
  * @precision: Precision specification
  * @size: Size specifier
- *
  * Return: The count of characters printed.
  */
 int print_binary(va_list types, char buffer[],

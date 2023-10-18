@@ -3,16 +3,14 @@
 /**
  * get_flags - Determine and calculate the active formatting flags.
  *
- * Description:
- * This function examines the format string to identify
+ * Description: This function examines the format string to identify
  * and calculate the active formatting flags
  * to be applied during printing.
  *
  * @format: The formatted string containing the arguments.
  * @i: A parameter (or list of arguments) that may affect the flags.
  *
- * Return:
- * The calculated formatting flags.
+ * Return: The calculated formatting flags.
  */
 int get_flags(const char *format, int *i)
 {

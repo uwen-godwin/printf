@@ -1,13 +1,11 @@
 #include "main.h"
 
 void print_buffer(char buffer[], int *buff_ind);
-
 /**
  * _printf - Custom printf function
  * @format: A format string.
  * Return: The number of characters printed.
  */
-
 int _printf(const char *format, ...)
 {
 	int p, printed = 0, printed_chars = 0;
@@ -18,7 +16,6 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-
 	for (p  = 0; format && format[p] != '\0'; p++)
 	{
 		if (format[p] != '%')
@@ -44,11 +41,8 @@ int _printf(const char *format, ...)
 			printed_chars += printed;
 		}
 	}
-
 	print_buffer(buffer, &buff_ind);
-
 	va_end(list);
-
 	return (printed_chars);
 }
 
